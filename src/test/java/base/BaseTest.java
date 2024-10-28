@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    private WebDriver driver;
+    protected WebDriver driver;
     protected LoginPage loginPage;
 
     @BeforeEach
@@ -31,7 +31,7 @@ public class BaseTest {
 
     @AfterEach
     public void tearDown() {
-        driver.quit();
+//        driver.quit();
     }
 
     public void waitingByTime(int time) throws InterruptedException {
