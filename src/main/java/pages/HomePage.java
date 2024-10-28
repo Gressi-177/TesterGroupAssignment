@@ -8,6 +8,7 @@ public class HomePage {
     private By alertText = By.xpath("//*[@id=\"content\"]/div[2]/div/h4");
     private By logoutBtn = By.xpath("//a[normalize-space()='Logout']");
     private By findPatientRecordBtn = By.xpath("//*[@id='coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension']");
+    private By captureVitalsBtn = By.xpath("//a[@id='referenceapplication-vitals-referenceapplication-vitals-extension']");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -20,6 +21,11 @@ public class HomePage {
     public FindPatientRecordPage getFindPatientRecordPage() {
         driver.findElement(findPatientRecordBtn).click();
         return new FindPatientRecordPage(driver);
+    }
+
+    public CaptureVitals getCaptureVitals() {
+        driver.findElement(captureVitalsBtn).click();
+        return new CaptureVitals(driver);
     }
 
     public LoginPage clickLogoutBtn() {
