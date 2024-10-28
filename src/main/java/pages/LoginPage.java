@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
     private WebDriver driver;
 
+    private By loginErrorText = By.xpath("//*[@id=\"error-message\"]");
     private By loginTitle = By.xpath("//*[@id=\"login-form\"]/fieldset/legend");
     private By userNameInput = By.xpath("//*[@id=\"username\"]");
     private By passWordInput = By.xpath("//*[@id=\"password\"]");
@@ -28,6 +29,10 @@ public class LoginPage {
         driver.findElement(locationItem).click();
     }
 
+    public String getErrorText() {
+         return driver.findElement(loginErrorText).getText();
+    }
+
     public String getLoginTitle() {
          return driver.findElement(loginTitle).getText();
     }
@@ -35,5 +40,14 @@ public class LoginPage {
     public HomePage clickLoginButton() {
         driver.findElement(loginBtn).click();
         return new HomePage(driver);
+    }
+
+    public HomePage getHomePage() {
+        setUserName("Admin");
+        setPassword("Admin123");
+        setLocation();
+        HomePage homePage = clickLoginButton();
+
+        return homePage;
     }
 }
