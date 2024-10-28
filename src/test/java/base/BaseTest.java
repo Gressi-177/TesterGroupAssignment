@@ -34,6 +34,10 @@ public class BaseTest {
         driver.quit();
     }
 
+    public void waitingByTime(int time) throws InterruptedException {
+        Thread.sleep(time);
+    }
+
     public static void main(String[] args) {
         BaseTest test = new BaseTest();
         test.setUp();

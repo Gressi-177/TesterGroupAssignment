@@ -17,8 +17,9 @@ public class HomePage {
         return driver.findElement(alertText).getText();
     }
 
-    public void clickFindPatientRecordPage() {
+    public FindPatientRecordPage getFindPatientRecordPage() {
         driver.findElement(findPatientRecordBtn).click();
+        return new FindPatientRecordPage(driver);
     }
 
     public LoginPage clickLogoutBtn() {
