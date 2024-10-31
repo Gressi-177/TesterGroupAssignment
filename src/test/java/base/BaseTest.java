@@ -31,7 +31,7 @@ public class BaseTest {
 
     @AfterEach
     public void tearDown() {
-//        driver.quit();
+        driver.quit();
     }
 
     public void waitingByTime(int time) throws InterruptedException {
