@@ -8,13 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.ViewThePatient;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    private WebDriver driver;
+    protected WebDriver driver;
     protected LoginPage loginPage;
+    protected ViewThePatient viewThePatient;
 
     @BeforeEach
     public void setUp() {
@@ -24,6 +26,8 @@ public class BaseTest {
         driver.manage().window().maximize();
 
         loginPage = new LoginPage(driver);
+        viewThePatient = new ViewThePatient(driver);
+        System.out.println("LoginPage instance: " + loginPage);
 
 //        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 //        driver.quit();
